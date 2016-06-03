@@ -11,6 +11,10 @@ window.onload = function() {
   var seekBar = document.getElementById("seek-bar");
   var volumeBar = document.getElementById("volume-bar");
 
+  //Time duration
+  var curTimeText = document.getElementById("curtimetext");
+  var durTimeText = document.getElementById("durtimetext");
+  
   //Event listener for the play/pause button
   playButton.addEventListener("click", function() {
     if (video.paused == true) {
@@ -65,15 +69,9 @@ window.onload = function() {
     video.currentTime = time;
   });
   
-  var i = setInterval(function () {
-    if (video.readyState > 0) {
-      var minutes = parseInt(video.duration / 60, 10);
-      var seconds = video.duration % 60;
-      
-      //Put the minutes and seconds in the display
-      clearInterval(i);
-    }
-  }, 200);
+  function seekTimeUpdate() {
+    
+  }
 
   //Update the seek bar as the video plays
   video.addEventListener("timeupdate", function() {
