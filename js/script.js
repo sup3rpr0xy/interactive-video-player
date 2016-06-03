@@ -18,13 +18,13 @@ window.onload = function() {
       video.play();
 
       //Update the button text to 'Pause'
-      playButton.innerHTML = "Pause";
+      playButton.src = "../icons/pause-icon.png";
     } else {
       //Pause the video
       video.pause();
 
       //Update the button text to 'Play'
-      playButton.innerHTML = "Play";
+      playButton.src = "../icons/play-icon.png";
     }
   });
 
@@ -35,13 +35,13 @@ window.onload = function() {
       video.muted = true;
       
       //Update the button text
-      muteButton.innerHTML = "Unmute";
+      muteButton.src = "../icons/volume-off-icon.png";
     } else {
       //Unmute the video
       video.muted = false;
       
       //Update the button text
-      muteButton.innerHTML = "Mute";
+      muteButton.src = "../icons/volume-on-icon.png";
     }
   });
   
@@ -64,6 +64,16 @@ window.onload = function() {
     //Update the video time
     video.currentTime = time;
   });
+  
+  var i = setInterval(function () {
+    if (video.readyState > 0) {
+      var minutes = parseInt(video.duration / 60, 10);
+      var seconds = video.duration % 60;
+      
+      //Put the minutes and seconds in the display
+      clearInterval(i);
+    }
+  }, 200);
 
   //Update the seek bar as the video plays
   video.addEventListener("timeupdate", function() {
@@ -74,7 +84,20 @@ window.onload = function() {
     seekBar.value = value;
   });
   
+  //Pause the video when the slider handle is being dragged
+  seekBar.addEventListener("mousedown", function() {
+    video.pause();
+  });
   
+  //Play the video when the slider handle is dropped
+  seekBar.addEventListener("mouseup", function() {
+    video.play();
+  });
+ 
+  //Event listener for the volume bar
+  volumeBar.addEventListener("change", function() {
+    //Update the video volume
+    video.volume = volumeBar.value;
+  });
   
 }
-
