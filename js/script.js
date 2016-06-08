@@ -11,7 +11,7 @@ window.onload = function() {
   var seekBar = document.getElementById("seek-bar");
   var volumeBar = document.getElementById("volume-bar");
 
-  //Time duration
+  //Current time and total duration
   var curTimeText = document.getElementById("curtimetext");
   var durTimeText = document.getElementById("durtimetext");
   
@@ -67,19 +67,93 @@ window.onload = function() {
     
     //Update the video time
     video.currentTime = time;
-  });
-  
-  function seekTimeUpdate() {
-    
-  }
+  });  
 
   //Update the seek bar as the video plays
   video.addEventListener("timeupdate", function() {
+    
     //Calculate the slider value
     var value = (100 / video.duration) * video.currentTime;
     
+    //Calculates the current time every second
+    var fullSec = parseInt(video.currentTime);
+    console.log(fullSec);
+    
+    
+    
+    if (fullSec <= 3) { 
+      $('span').removeClass('highlight');
+      $('#text-one').addClass('highlight'); //Text-one is highlighted
+    } else if (fullSec > 3 && fullSec <= 6) {
+      $('span').removeClass('highlight');
+      $('#text-two').addClass('highlight'); //Text-two is highlighted
+    } else if (fullSec > 6 && fullSec <= 10) {
+      $('span').removeClass('highlight');
+      $('#text-three').addClass('highlight'); //Text-three is highlighted
+    } else if (fullSec > 10 && fullSec <= 13) {
+      $('span').removeClass('highlight');
+      $('#text-four').addClass('highlight'); //Text-four is highlighted
+    } else if (fullSec > 13 && fullSec <= 17) {
+      $('span').removeClass('highlight');
+      $('#text-five').addClass('highlight');
+    } else if (fullSec > 17 && fullSec <= 21) {
+      $('span').removeClass('highlight');
+      $('#text-six').addClass('highlight');
+    } else if (fullSec > 21 && fullSec <= 26) {
+      $('span').removeClass('highlight');
+      $('#text-seven').addClass('highlight');
+    } else if (fullSec > 26 && fullSec <= 30) {
+      $('span').removeClass('highlight');
+      $('#text-eight').addClass('highlight');
+    } else if (fullSec > 30 && fullSec <= 34) {
+      $('span').removeClass('highlight');
+      $('#text-nine').addClass('highlight');
+    } else if (fullSec > 34 && fullSec <= 38) {
+      $('span').removeClass('highlight');
+      $('#text-ten').addClass('highlight');
+    } else if (fullSec > 38 && fullSec <= 40) {
+      $('span').removeClass('highlight');
+      $('#text-eleven').addClass('highlight');
+    } else if (fullSec > 40 && fullSec <= 45) {
+      $('span').removeClass('highlight');
+      $('#text-twelve').addClass('highlight');
+    } else if (fullSec > 45 && fullSec <= 48) {
+      $('span').removeClass('highlight');
+      $('#text-thirteen').addClass('highlight');
+    } else if (fullSec > 48 && fullSec <= 53) {
+      $('span').removeClass('highlight');
+      $('#text-fourteen').addClass('highlight');
+    } else if (fullSec > 53 && fullSec <= 57) {
+      $('span').removeClass('highlight');
+      $('#text-fifteen').addClass('highlight');
+    } else if (fullSec > 57 && fullSec <= 60) {
+      $('span').removeClass('highlight');
+      $('#text-sixteen').addClass('highlight');
+    } else {
+      $('span').removeClass('highlight');
+    }
+    
     //Update the slider value
     seekBar.value = value;
+    
+    //Formula to get the current time and duration time
+    var curmins = Math.floor(video.currentTime / 60);
+    var cursecs = Math.floor(video.currentTime - curmins * 60);
+    var durmins = Math.floor(video.duration / 60);
+    var dursecs = Math.floor(video.duration - durmins * 60);
+    
+    //Check to see if the video duration isn't blank
+    if (cursecs < 10) {
+      cursecs = "0"+cursecs;
+    }
+    if (dursecs < 10) {
+      dursecs = "0"+dursecs;
+    }
+    
+    //Insert the current time and duration on the page
+    curTimeText.innerHTML = curmins+":"+cursecs;
+    durTimeText.innerHTML = durmins+":"+dursecs;
+    
   });
   
   //Pause the video when the slider handle is being dragged

@@ -43,6 +43,10 @@ video, audio, .mejs-treehouse {
   padding: 0 10px;
 }
 
+span.highlight {
+  background-color: yellow;
+}
+
 /*
 
 #play-pause {
