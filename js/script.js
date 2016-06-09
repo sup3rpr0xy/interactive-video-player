@@ -15,6 +15,10 @@ window.onload = function() {
   var curTimeText = document.getElementById("curtimetext");
   var durTimeText = document.getElementById("durtimetext");
   
+  //Empty time placeholder
+  curTimeText.innerHTML = "0:00";
+  durTimeText.innerHTML = "0:00";
+  
   //Event listener for the play/pause button
   playButton.addEventListener("click", function() {
     if (video.paused == true) {
@@ -79,8 +83,7 @@ window.onload = function() {
     var fullSec = parseInt(video.currentTime);
     console.log(fullSec);
     
-    
-    
+    //Highlighting text formula
     if (fullSec <= 3) { 
       $('span').removeClass('highlight');
       $('#text-one').addClass('highlight'); //Text-one is highlighted
@@ -160,13 +163,12 @@ window.onload = function() {
   seekBar.addEventListener("mousedown", function() {
     video.pause();
   });
-  
   //Play the video when the slider handle is dropped
   seekBar.addEventListener("mouseup", function() {
     video.play();
   });
- 
-  //Event listener for the volume bar
+  
+  //Event listener for the VOLUME BAR
   volumeBar.addEventListener("change", function() {
     //Update the video volume
     video.volume = volumeBar.value;

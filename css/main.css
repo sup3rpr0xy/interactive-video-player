@@ -13,19 +13,23 @@ body {
   max-width: 70%;
   margin: 10px auto;
   padding: 10px 20px;
-  background: grey;
+  background: lightgrey;
   border-radius: 8px;
-  height: 1000px ;
+  height: auto;
 }
 
-h1, h2 {
-  margin: 30px 0;
-  text-align: center;
+#video {
+  width: 100%;
 }
 
-video, audio, .mejs-treehouse {
+video, audio {
   margin: 0 auto;
   display: block;
+}
+
+#control {
+  width: 100%;
+  z-index: 50;
 }
 
 #seek-bar {
@@ -35,10 +39,13 @@ video, audio, .mejs-treehouse {
 
 #play-pause {
   float: left;
+  width: 40px;
+  padding: 0 10px;
 }
 
 #mute, 
 #full-screen {
+  width: 40px;
   float: right;
   padding: 0 10px;
 }
@@ -46,14 +53,3 @@ video, audio, .mejs-treehouse {
 span.highlight {
   background-color: yellow;
 }
-
-/*
-
-#play-pause {
-  background-image: url("../icons/play-icon.png") no-repeat;
-  height: 30px;
-  width: 30px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}*/
