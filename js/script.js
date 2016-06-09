@@ -166,6 +166,7 @@ window.onload = function() {
   //Play the video when the slider handle is dropped
   seekBar.addEventListener("mouseup", function() {
     video.play();
+    playButton.src = "../icons/pause-icon.png";
   });
   
   //Event listener for the VOLUME BAR
@@ -173,5 +174,8 @@ window.onload = function() {
     //Update the video volume
     video.volume = volumeBar.value;
   });
+  
+
+  
   
 }

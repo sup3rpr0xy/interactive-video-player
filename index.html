@@ -11,29 +11,33 @@
     <!-- Javascript and jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/sync.js"></script>
   </head>
   <body>
     <div class="wrapper">
       
       <!-- Video --> 
-      <video id="video">
+      <div id="video-container">
+      <video id="video" width="600" height="340">
         <source src="video/video.mp4" type="video/mp4">
         <source src="video/video.ogg" type="video/ogg">
-        <track label="English" kind="captions" srclang="en" src="video/captions.vtt" default>
+<!--        <track label="English" kind="captions" srclang="en" src="video/captions.vtt" default>-->
         <p>Your browser does not support HTML5 video</p>
       </video>
-      
+      </div>
       <!-- Video Controls --> 
       <div id="control">
         <input type="range" id="seek-bar" value="0">
         <!-- <button type="button" id="play-pause"></button> -->
-        <img id="play-pause" src="icons/play-icon.png">
-        <span id="curtimetext"></span> / <span id="durtimetext"></span>
-        <img id="mute" src="icons/volume-on-icon.png">
-        <!-- <button type="button" id="mute" data-state="mute"></button> -->
-        <!-- <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1"> -->
-        <!-- <button type="button" id="full-screen" data-state="go-fullscreen">Full Screen</button> -->
-        <img id="full-screen" src="icons/fullscreen-icon.png">
+        <div id="bottom-buttons">
+          <img id="play-pause" src="icons/play-icon.png">
+          <span id="curtimetext"></span> <span id="slash">/</span> <span id="durtimetext"></span>
+          <img id="mute" src="icons/volume-on-icon.png">
+          <!-- <button type="button" id="mute" data-state="mute"></button> -->
+          <!-- <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1"> -->
+          <!-- <button type="button" id="full-screen" data-state="go-fullscreen">Full Screen</button> -->
+          <img id="full-screen" src="icons/fullscreen-icon.png">
+        </div>
       </div>
       
       <div class="text">
@@ -42,13 +46,14 @@
             <span id="text-two">connect your personal devices to the internet inside your house. </span>
             <span id="text-three">Well there are many ways to connect to the internet, and </span>
             <span id="text-four">most often people connect wirelessly.</span> 
-            <span id="text-five">Let's look at an example of how you can connect to the internet.</span> 
+            <span id="text-five">Let's look at an example of how you can connect to the internet.</span> <br><br>
             <span id="text-six">If you live in a city or a town, you probably have a coaxial cable for</span>
             <span id="text-seven">cable Internet, or a phone line if you have DSL, running to the outside of</span>
             <span id="text-eight">your house, that connects you to the Internet Service Provider, or ISP.</span>
             <span id="text-nine">If you live far out in the country, you'll more likely have</span>
             <span id="text-ten">a dish outside your house, connecting you wirelessly to your closest ISP, or</span>
             <span id="text-eleven">you might also use the telephone system.</span>
+            <br><br>
             <span id="text-twelve">Whether a wire comes straight from the ISP hookup outside your house, or</span>
             <span id="text-thirteen">it travels over radio waves from your roof,</span>
             <span id="text-fourteen">the first stop a wire will make once inside your house, is at your modem.</span>
