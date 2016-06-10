@@ -27,13 +27,23 @@ body {
   z-index: 1;
 }
 
-video, audio {
+video {
   margin: 0 auto;
   display: block;
+  width: 600px;
+  height: 340px;
 }
 
-#control {
+.controlSection {
   top: 305px;
+  text-align: left;
+  width: 600px;
+  z-index: 10;
+  position: absolute;
+}
+
+.progressDown {
+  top: 338px;
   text-align: left;
   width: 600px;
   z-index: 10;
@@ -42,6 +52,7 @@ video, audio {
 
 #seek-bar {
   width: 100%;
+  text-align: center;
 }
 
 input[type=range] {
