@@ -26,13 +26,13 @@ window.onload = function() {
       video.play();
 
       //Update the button text to 'Pause'
-      playButton.src = "../icons/pause-icon.png";
+      playButton.src = "icons/pause-icon.png";
     } else {
       //Pause the video
       video.pause();
 
       //Update the button text to 'Play'
-      playButton.src = "../icons/play-icon.png";
+      playButton.src = "icons/play-icon.png";
     }
   });
 
